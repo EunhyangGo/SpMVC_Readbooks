@@ -1,0 +1,5 @@
+com\biz\books\mapper\BookDao.class
+com\biz\books\model\BookVO.class
+com\biz\books\mapper\BookSQL.class
+com\biz\books\controller\BookController.class
+com\biz\books\service\BookService.class
