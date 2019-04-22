@@ -17,6 +17,12 @@ public class BookService {
 	@Autowired
 	BookDao dao;
 	
+	public List<BookVO> selectAll() {
+		// TODO Auto-generated method stub
+		List<BookVO> bookList = dao.selectAll();
+		return bookList;
+	}
+	
 	public int save(BookVO bookVO) {
 
 		int ret = 0;
@@ -31,19 +37,29 @@ public class BookService {
 		return 0;
 	}
 	
+	public BookVO findById(long b_id){
+		
+		BookVO vo = dao.findById(b_id);
+		return vo;
+	}
+	
 	public int insert(BookVO bookVO) {
 		int ret = dao.insert(bookVO);
 		return ret;
 	}
 	
-	public List<BookVO> findById(long b_id){
-		return dao.selectById(b_id);
+	public int update(BookVO bookVO) {
+		int ret = dao.update(bookVO);
+		return ret;
+		
+	}
+	
+	public int delete(long b_id) {
+		int ret = dao.delete(b_id);
+		return ret;
 	}
 
-	public List<BookVO> selectAll() {
-		// TODO Auto-generated method stub
-		return dao.selectAll();
-	}
+	
 	
 	
 	

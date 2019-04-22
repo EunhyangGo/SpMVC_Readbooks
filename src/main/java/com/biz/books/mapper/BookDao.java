@@ -11,9 +11,13 @@ import org.apache.ibatis.annotations.UpdateProvider;
 import com.biz.books.model.BookVO;
 
 public interface BookDao {
+	
+	@Select("SELECT * FROM tbl_books")
+	public List<BookVO> selectAll();
+	
 
 	@Select("SELECT * FROM tbl_books WHERE b_id = #{b_id}")
-	public List<BookVO> selectById(long b_id);
+	public BookVO findById(long b_id);
 	
 
 	@SelectKey(statement=" SELECT SEQ_BOOK.NEXTVAL FROM DUAL ",
@@ -22,12 +26,12 @@ public interface BookDao {
 	@InsertProvider(type=BookSQL.class, method="book_insert_sql")
 	public int insert(BookVO bookVO);
 	
-	@Delete("DELETE FROM tbl_books WHERE id=#{id}")
-	public int delete(long id);
-
+	
 	@UpdateProvider(type=BookSQL.class, method="book_update_sql")
 	public int update(BookVO bookVO);
 	
-	@Select("SELECT * FROM tbl_books")
-	public List<BookVO> selectAll();
+	//b_id로 쓰는것ㄷ이 아니라 id로 쓰고싶으면 dao에서 b_id는 id라고 선언해주면 된다....
+	@Delete("DELETE FROM tbl_books WHERE b_id=#{id}")
+	public int delete(long id);
+
 }

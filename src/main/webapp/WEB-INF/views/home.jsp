@@ -32,7 +32,7 @@ label{
 	font-size: 11pt;
 }
 
-input, textare{
+input, textarea{
 	display : inline-block;
 	width: 85%; /*입력칸 가로넓이 늘리기*/
 	
@@ -119,6 +119,7 @@ $(function(){
 	<h3 class="head">나의 도서 리스트</h3>
 </article>
 <section>
+<!-- value를 book으로 받는다는것은 controller의 book으로 간다는 것. -->
  <form action=<c:url value="book" /> method="POST">
 <label for="b_id">ID</label>
 <input type="text" name="b_id" 
@@ -159,7 +160,7 @@ $(function(){
 
 
 <hr />
-<button id="save1" type="submit"> 전송 </button>
+<button id="save" type="submit"> 전송 </button>
 </form>
 </section>
 
